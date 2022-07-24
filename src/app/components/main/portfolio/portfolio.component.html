@@ -1,0 +1,51 @@
+<section class="portfolio section" id="portfolio">
+    <h2 class="section__title">Portfolio</h2>
+    <span class="section__subtitle">Works</span>
+
+    <div class="portfolio__container container">
+        
+        <swiper [navigation]="true"
+                class="mySwiper">
+
+            <ng-template class="portfolio__content grid" swiperSlide>
+                <img src="assets/img/images/Portfolio3.jpg" alt="Portfolio" class="portfolio__img">
+                <div class="portfolio__data">
+                    <h3 class="portfolio__title">Modern Website</h3>
+                    <p class="portfolio__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum,
+                        numquam!</p>
+                    <a href="#" class="button button--flex button--small portfolio__button">
+                        Demo
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </a>
+                </div>
+            </ng-template>
+
+            <ng-template class="portfolio__content grid" swiperSlide>
+                <img src="assets/img/images/Portfolio3.jpg" alt="Portfolio2" class="portfolio__img">
+                <div class="portfolio__data">
+                    <h3 class="portfolio__title">Personal Website</h3>
+                    <p class="portfolio__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum,
+                        numquam!</p>
+                    <a href="#" class="button button--flex button--small portfolio__button">
+                        Demo
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </a>
+                </div>
+            </ng-template>
+
+            <ng-template class="portfolio__content grid" swiperSlide>
+                <img src="assets/img/images/Portfolio3.jpg" alt="Portfolio" class="portfolio__img">
+                <div class="portfolio__data">
+                    <h3 class="portfolio__title">Adaptive Website</h3>
+                    <p class="portfolio__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum,
+                        numquam!</p>
+                    <a href="#" class="button button--flex button--small portfolio__button">
+                        Demo
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </a>
+                </div>
+            </ng-template>
+
+        </swiper>
+    </div>
+</section>
