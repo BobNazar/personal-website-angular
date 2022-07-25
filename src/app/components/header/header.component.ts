@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -21,7 +22,7 @@ export class HeaderComponent implements OnInit {
   isMenuOpen: boolean = false;
   headerScroll: boolean = false;
   
-  constructor() {}
+  constructor( private router: Router ) {}
 
   ngOnInit(): void {
     //this.addToLocalStorage();
