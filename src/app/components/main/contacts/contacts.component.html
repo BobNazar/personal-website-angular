@@ -30,32 +30,32 @@
             </div>
         </div>
 
-        <form action="" class="contacts__form grid">
+        <form [formGroup]="formData" class="contacts__form grid" (ngSubmit)="onSubmit(formData.value)">
             <div class="contacts__inputs grid">
                 <div class="contacts__content">
                     <label for="" class="contacts__label">Name</label>
-                    <input type="text" class="contacts__input">
+                    <input formControlName="name" placeholder=" Your name" type="text" class="contacts__input">
                 </div>
                 <div class="contacts__content">
                     <label for="" class="contacts__label">Email</label>
-                    <input type="email" class="contacts__input">
+                    <input formControlName="email" placeholder="example@email.com" type="email" class="contacts__input">
                 </div>
             </div>
 
             <div class="contacts__content">
                 <label for="" class="contacts__label">Project</label>
-                <input type="text" class="contacts__input">
+                <input formControlName="project" placeholder=" Your project" type="text" class="contacts__input">
             </div>
             <div class="contacts__content">
                 <label for="" class="contacts__label">Message</label>
-                <textarea name="" id="" cols="0" rows="7" class="contacts__input"></textarea>
+                <textarea formControlName="message" placeholder=" Your message" name="" id="" cols="0" rows="7" class="contacts__input"></textarea>
             </div>
 
             <div>
-                <a href="#" class="button button--flex">
+                <button [disabled]="!formData.valid" type="submit" class="button button--flex">
                     Send message
                     <i class="uil uil-message button__icon"></i>
-                </a>
+                </button>
             </div>
         </form>
 
