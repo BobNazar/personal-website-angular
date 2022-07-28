@@ -17,6 +17,7 @@ import { SkillsComponent } from './components/main/skills/skills.component';
 import { QualificationComponent } from './components/main/qualification/qualification.component';
 import { PortfolioComponent } from './components/main/portfolio/portfolio.component';
 import { ContactsComponent } from './components/main/contacts/contacts.component';
+import { ContactsService } from './components/main/contacts/contacts.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ContactsComponent } from './components/main/contacts/contacts.component
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ContactsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

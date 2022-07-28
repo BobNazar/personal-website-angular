@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { map } from 'rxjs/operators';
+import { ContactsService } from './contacts.service';
 
 @Component({
   selector: 'app-contacts',
@@ -12,11 +11,9 @@ export class ContactsComponent implements OnInit {
 
   formData!: FormGroup;
 
-  private api = 'http//mailthis.to/Bobinio'
-
   emailPattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  constructor(private builder: FormBuilder, private http: HttpClient) { }
+  constructor(private builder: FormBuilder, private contact: ContactsService) { }
 
   ngOnInit(): void {
     this.formData = this.builder.group({
@@ -27,33 +24,16 @@ export class ContactsComponent implements OnInit {
     })
   }
 
-  postMessage(input: any) {
-    return this.http.post(this.api, input, { responseType: 'text' })
-      .pipe(
-        map(
-          (response) => {
-            if (response) {
-              return response;
-            }else{
-              return null;
-            }
-          },
-          (error: any) => {
-            return error;
-          }
-        )
-      )
-  }
-
   onSubmit(formData: any) {
-    this.postMessage(formData)
-      .subscribe((response: any) => {
+    this.contact.postMessage(formData)
+      .subscribe( response => {
         location.href = 'https://mailthis.to/confirm'
         console.log(response)
-      }, (error: any) => {
+      }, error => {
         console.warn(error.responseText)
         console.log({ error })
       })
+    this.formData.reset();
   }
 
 }
